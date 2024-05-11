@@ -16,7 +16,7 @@ After Starting Apache and MySQL in XAMPP, follow the following steps.
 
 After Creating Database,
 
-9th Step: Open a browser and go to URL “http://localhost/reference-globe-task/index.php”
+9th Step: Open a browser and go to URL “http://localhost/reference-globe-task-main/index.php”
 
 ## Credentials:
 
