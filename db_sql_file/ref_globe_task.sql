@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2024 at 04:31 PM
+-- Generation Time: May 13, 2024 at 07:53 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -20,6 +20,44 @@ SET time_zone = "+00:00";
 --
 -- Database: `ref_globe_task`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `disignation` varchar(255) NOT NULL,
+  `dob` varchar(255) NOT NULL,
+  `doj` varchar(255) NOT NULL,
+  `blood_group` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mobile` bigint(20) NOT NULL,
+  `address` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`id`, `name`, `disignation`, `dob`, `doj`, `blood_group`, `email`, `mobile`, `address`) VALUES
+(1, 'suresh', 'sfsf', '20/12/1991', '20/12/1995', 'cdg', 'dfgdfg@sfsdf', 54646546464, 'dfgdsfsfs');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `file_manage`
+--
+
+CREATE TABLE `file_manage` (
+  `id` int(11) NOT NULL,
+  `file` varchar(255) NOT NULL,
+  `added_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -49,7 +87,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `mobile_no`, `user_image`, `signature`, `gender`, `dob`, `auth_level`, `role`, `address`, `status`, `register_date`) VALUES
-(1, 'suresh user', 'suresh@yopmail.com', '12', '9603212151', 'database/uploads/20220218-122006_p0.jpg', 'database/uploads/96481564745339.jpeg', 'male', '2024-05-09', 3, 'user', 'hyd', 1, '0000-00-00 00:00:00'),
+(1, 'suresh user', 'suresh@yopmail.com', '123456', '9603212151', 'database/uploads/20220218-122006_p0.jpg', 'database/uploads/96481564745339.jpeg', 'male', '2024-05-09', 3, 'user', 'hyd', 1, '0000-00-00 00:00:00'),
 (6, 'Raju', 'raju@yopmail.com', '123456', '9603212151', 'database/uploads/20220218-122006_p0.jpg', 'database/uploads/image_1.jfif', 'male', '2024-05-07', 1, 'superadmin', 'hyd', 1, '2024-05-11 13:42:01'),
 (7, 'Murali', 'murali@yopmail.com', '123456', '9603212151', 'database/uploads/image_1.jfif', 'database/uploads/image_1.jfif', 'male', '2024-05-07', 2, 'admin', 'hyd', 1, '2024-05-11 13:45:15'),
 (8, 'suresh user 2', 'suresh2@yopmail.com', '123456', '09603212151', 'database/uploads/image_1.jfif', 'database/uploads/logo.png', 'male', '2024-05-15', 3, 'user', 'wgl2', 1, '2024-05-11 19:26:41'),
@@ -60,6 +98,18 @@ INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `mobile_no`, `user_
 --
 
 --
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `file_manage`
+--
+ALTER TABLE `file_manage`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -68,6 +118,18 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `file_manage`
+--
+ALTER TABLE `file_manage`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
