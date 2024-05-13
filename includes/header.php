@@ -32,24 +32,31 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active text-white" aria-current="page" href="dashboard.php">Task-1</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active text-white" aria-current="page" href="employee_data.php">Task-2a</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active text-white" aria-current="page" href="filemanagement.php">Task-2b</a>
-                </li>
-                <?php if (!isset($_SESSION['uid'])) { ?> <li class="nav-item">
+                <?php if (isset($_SESSION['uid'])) { ?>
+
+                  <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="dashboard.php">Task-1</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="employee_data.php">Task-2a</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="filemanagement.php">Task-2b</a>
+                  </li>
+                <?php } ?>
+
+                <?php if (!isset($_SESSION['uid'])) { ?>
+
+                  <li class="nav-item">
                     <a class="nav-link text-white" href="signUp.php">SignUp</a>
-                  <?php } ?>
 
                   </li>
-                  <?php if (!isset($_SESSION['uid'])) { ?> <li class="nav-item">
-                      <a class="nav-link text-white" href="index.php">Login</a>
-                    </li>
-                  <?php } ?>
+                <?php } ?>
+
+                <?php if (!isset($_SESSION['uid'])) { ?> <li class="nav-item">
+                    <a class="nav-link text-white" href="index.php">Login</a>
+                  </li>
+                <?php } ?>
 
               </ul>
               <?php if (isset($_SESSION['uid'])) { ?>
