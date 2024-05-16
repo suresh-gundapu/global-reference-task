@@ -1,7 +1,6 @@
 <div class="layout-fixed  bg-body-tertiary">
     <?php include('includes/header.php');
     include_once "database/connection.php";
-    include_once "database/fetchUserFiles.php";
 
     if (!isset($_SESSION['name'])) {
         header('location:index.php');
@@ -28,36 +27,27 @@
                     <div class="m-2">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">File Management System</h4>
-                            <a href="upload_file_user.php"><button class="btn btn-success text-left">+Upload File</button></a>
 
-                            <div class="form-group">
-                                <input type="text" name="search_box" id="search_box" class="form-control" placeholder="Type file name" />
-                            </div>
+
                         </div>
                     </div>
-                    <table class="table table-stripped table-bordered demo-table">
-                        <thead>
-                            <tr>
-                                <th scope="col">SNo</th>
-                                <th scope="col">File</th>
-                                <th scope="col">Created</th>
+                    <form class="row g-3 valid-err" id="upload-file" action="javascript:void(0)">
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <label htmlFor="name" class="form-label">Uploadfile</label>
+                                <input type="file" class="form-control" id="file" name="data[file]">
 
-                            </tr>
-                        </thead>
-                        <tbody id="demo-table-content">
+                            </div>
+                            <div class="col-md-12">
 
-                            <?php $i = 1;
-                            foreach ($result as $key => $value) { ?>
-                                <tr>
-                                    <td><?php echo $i ?></td>
-                                    <td><img src="<?php echo $value['file']; ?>" width="90px" /></td>
-                                    <td><?php echo $value['added_date']; ?></td>
+                                <div class="col-md-12">
+                                    <div class="mt-5 text-center"><button class="btn btn-primary upload_file" type="button">Upload File</button>
 
-                                </tr>
-                            <?php $i++;
-                            } ?>
-                        </tbody>
-                    </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                    </form>
                 </div>
             <?php } ?>
 
@@ -67,4 +57,4 @@
 </div>
 
 <script src="assets/js/file_manage.js"></script>
-<?php include('includes/footer.php'); ?> </div>
+< <?php include('includes/footer.php'); ?> </div>

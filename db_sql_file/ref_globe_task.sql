@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2024 at 07:53 PM
+-- Generation Time: May 16, 2024 at 09:55 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -55,9 +55,17 @@ INSERT INTO `employees` (`id`, `name`, `disignation`, `dob`, `doj`, `blood_group
 CREATE TABLE `file_manage` (
   `id` int(11) NOT NULL,
   `file` varchar(255) NOT NULL,
-  `added_date` datetime NOT NULL DEFAULT current_timestamp(),
-  `status` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `added_date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `file_manage`
+--
+
+INSERT INTO `file_manage` (`id`, `file`, `user_id`, `added_date`) VALUES
+(1, '1', 0, '2024-05-16 12:06:53'),
+(2, 'database/uploads/96481564745339.jpeg', 1, '2024-05-16 13:12:30');
 
 -- --------------------------------------------------------
 
@@ -129,7 +137,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `file_manage`
 --
 ALTER TABLE `file_manage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

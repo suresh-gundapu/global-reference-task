@@ -1,46 +1,46 @@
 $(function () {
-  $("#e").focus();
-
-  $("#form-login").validate({
+  // debugger;
+  $("#upload-file").validate({
     rules: {
-      "data[email]": "required",
-      "data[password]": "required",
+      "data[file]": "required",
     },
     messages: {
-      "data[email]": "Please enter email",
-      "data[password]": "Please enter password",
+      "data[file]": "Please Upload File",
     },
   });
-  $(".login").click(function () {
-    var validator = $("#form-login").validate();
+  $(".upload_file").click(function () {
+    var validator = $("#upload-file").validate();
     validator.form();
     if (validator.form() == true) {
-      var data = new FormData($("#form-login")[0]);
+      var data = new FormData($("#upload-file")[0]);
       console.log(data);
       $.ajax({
-        url: "database/loginAction.php",
+        url: "database/uploadFileUser.php",
         type: "POST",
         cache: false,
         data: data,
         processData: false,
+        contentType: false,
+        mimeType: "multipart/form-data",
         contentType: false,
         success: function (result) {
           var obj = jQuery.parseJSON(result);
           if (obj.status == "1") {
             Swal.fire({
               icon: "success",
-              title: "Login...",
-              text: obj.message,
+              title: obj.message,
+              showConfirmButton: false,
+              timer: 1500,
             });
             setTimeout(function () {
-              window.location.href = "dashboard.php";
+              window.location.href = "filemanagement.php";
             }, 1000);
-            $(".login").removeAttr("disabled");
           } else {
             Swal.fire({
               icon: "error",
-              title: "Error...",
-              text: obj.message,
+              title: obj.message,
+              showConfirmButton: false,
+              timer: 1500,
             });
           }
         },
