@@ -37,6 +37,7 @@
                                 <label htmlFor="name" class="form-label">Uploadfile</label>
                                 <input type="file" class="form-control" id="file" name="data[file]">
 
+                                <img class="basic-img d-none" src="#" width="100px" />
                             </div>
                             <div class="col-md-12">
 
@@ -55,6 +56,23 @@
 
     </div>
 </div>
+<script>
+    $(function() {
+        $(":file").change(function() {
+            $(".basic-img").removeClass("d-none");
+
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
+
+    function imageIsLoaded(e) {
+        $('.basic-img').attr('src', e.target.result);
+    };
+</script>
 
 <script src="assets/js/file_manage.js"></script>
 < <?php include('includes/footer.php'); ?> </div>
